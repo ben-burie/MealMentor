@@ -1,0 +1,43 @@
+:root {
+    --green: #00bf63;
+    --white: #ffffff;
+    --black: #000000;
+  }
+
+* {
+    background-color: var(--white);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    margin: 0 15px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.2s;
+}
+
+nav ul li a:hover {
+    color: var(--green);
+    transition: color 0.2s;
+}
+
+#main {
+    margin-top: 50px;
+    text-align: center;
+}
