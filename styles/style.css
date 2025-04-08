@@ -41,3 +41,12 @@ nav ul li a:hover {
     margin-top: 50px;
     text-align: center;
 }
+
+#row {
+    display: flex;
+}
+
+#col1, #col2 {
+    flex: 1;
+    padding: 10px;
+}
