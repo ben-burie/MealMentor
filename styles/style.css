@@ -48,5 +48,64 @@ nav ul li a:hover {
 
 #col1, #col2 {
     flex: 1;
-    padding: 10px;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#col1 {
+    padding: 50px 50px 50px 80px;
+}
+
+#col1 h2 {
+    color: var(--green);
+    font-size: 3rem;
+}
+
+#col1 p {
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+#col2 {
+    padding: 30px 80px 30px 80px;
+}
+
+.learn-more {
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid, var(--green);
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+.popup-content {
+    padding: 20px;
+    max-width: 80%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.popup-content h2 {
+    color: var(--green);
+}
+
+.close-button {
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--green);
 }
