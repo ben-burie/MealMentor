@@ -136,8 +136,12 @@ nav ul li a:hover {
     margin-right: 10px;
 }
 
+.container > div.menu table td:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
 .container > div.menu table {
-    border-collapse: collapse;
     width: 100%;
 }
 
@@ -165,6 +169,11 @@ nav ul li a:hover {
     background-color: lightgray;
     cursor: pointer;
     transition: background-color .2s;
+}
+
+#clear-kitchen {
+    margin-top: 10px;
+    width: 100px;
 }
 
 .container > div.menu label {
