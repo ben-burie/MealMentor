@@ -32,7 +32,6 @@ function addItem(e) { //adds item to kitchen and kithen array
     });
 
     input.value = "";
-    console.log(kitchen);
 }
 
 function removeItemFromArray(requestedItem) { //removes item from kitchen array
@@ -61,8 +60,10 @@ function populateKitchen() { //fills kitchen with items stored in array
     } 
 }
 
-function clearKitchen() {
-    localStorage.removeItem("kitchen");
-    const table = document.getElementById("kitchen-table").firstChild;
-    table.innerHTML = "<th style='width: 65%;'>Item</th>"; //have to fix
+function clearKitchen() { //clears the kitchens contents from the display and local memory
+    if (confirm("Are you sure you want to clear your kitchen?") == true) {
+        localStorage.removeItem("kitchen");
+        const table = document.getElementById("kitchen-table");
+        table.innerHTML = "<th style='width: 65%;'>Item</th>";
+    }
 }

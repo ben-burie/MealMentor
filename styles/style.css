@@ -125,7 +125,7 @@ nav ul li a:hover {
     padding: 10px;
   }
 
-.container > div.menu {
+.container > div.menu, .container > div.content {
     grid-area: menu;
     text-align: center;
 }
