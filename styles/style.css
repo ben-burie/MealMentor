@@ -112,8 +112,8 @@ nav ul li a:hover {
 
 .container {
     display: grid;
-    grid-template-areas: "menu content";
-    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "menu content list";
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 5px;
     padding: 5px;
     margin-top: 50px;
@@ -155,7 +155,7 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-.container > div.menu button {
+.container > div.menu button, .container > div.content button {
     height: 35px;
     background-color: var(--white);
     color: var(--black);
@@ -165,7 +165,7 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-.container > div.menu button:hover {
+.container > div.menu button:hover, .container > div.content button:hover {
     background-color: lightgray;
     cursor: pointer;
     transition: background-color .2s;
@@ -182,4 +182,22 @@ nav ul li a:hover {
 
 .container > div.content {
     grid-area: content;
+}
+
+.container > div.content select {
+    height: 35px;
+}
+
+.container > div.content table {
+    width: 100%;
+}
+
+.container > div.content table th, .container > div.content table td {
+    border: 1px solid var(--black);
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.container > div.list {
+    text-align: center;
 }

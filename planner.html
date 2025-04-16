@@ -34,11 +34,26 @@
         </div>
         <div class="content">
             <h2>Recipe Planner</h2>
-
+            <form id="recipe-select">
+                <label for="recipes">Choose a recipe:</label>
+                <select name="recipes" id="recipes-dropdown">
+                </select>
+                <button id="submit-recipe">Add</button>
+            </form>
+            <h3>Planned Recipes</h3>
+            <table id="recipe-table">
+                <th>Recipe Name</th>
+                <th>Link</th>
+            </table>
+        </div>
+        <div class="list">
+            <h2>Grocery List</h2>
+        </div>
     </div>
     <footer>
 
     </footer>
     <script src="scripts/kitchen.js"></script>
+    <script src="scripts/recipeSearch.js"></script>
 </body>
 </html>
