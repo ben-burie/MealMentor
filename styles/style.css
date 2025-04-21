@@ -171,7 +171,7 @@ nav ul li a:hover {
     transition: background-color .2s;
 }
 
-#clear-kitchen, #clear-groceries {
+#clear-kitchen, #clear-groceries, #clear-recipes {
     margin-top: 10px;
     width: 100px;
 }
