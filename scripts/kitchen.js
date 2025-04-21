@@ -5,7 +5,7 @@ const addButton = document.getElementById("button-add-kitchen");
 const clearButton = document.getElementById("clear-kitchen");
 
 addButton.addEventListener("click", addItem);
-clearButton.addEventListener("click", clearKitchen);
+clearButton.addEventListener("click", () => clear("kitchen", "kitchen-table"));
 window.addEventListener("load", populateKitchen);
 
 function addItem(e) { //adds item to kitchen and kithen array
@@ -27,20 +27,11 @@ function addItem(e) { //adds item to kitchen and kithen array
     newRow.addEventListener("click", () => {
         if (confirm("Delete " + newCell.textContent + "?") == true) {
             newRow.remove();
-            removeItemFromArray(newCell.textContent);
+            removeItemFromArray(newCell.textContent, kitchen, "kitchen");
         }
     });
 
     input.value = "";
-}
-
-function removeItemFromArray(requestedItem) { //removes item from kitchen array
-    for (let i=0; i<kitchen.length; i++) {
-        if (kitchen[i] === requestedItem) {
-            kitchen.splice(i, 1);
-            localStorage.setItem("kitchen", JSON.stringify(kitchen));
-        }
-    }
 }
 
 function populateKitchen() { //fills kitchen with items stored in array
@@ -54,16 +45,8 @@ function populateKitchen() { //fills kitchen with items stored in array
         newRow.addEventListener("click", () => {
             if (confirm("Delete " + newCell.textContent + "?") == true) {
                 newRow.remove();
-                removeItemFromArray(newCell.textContent);
+                removeItemFromArray(newCell.textContent, kitchen, "kitchen");
             }
         });
     } 
-}
-
-function clearKitchen() { //clears the kitchens contents from the display and local memory
-    if (confirm("Are you sure you want to clear your kitchen?") == true) {
-        localStorage.removeItem("kitchen");
-        const table = document.getElementById("kitchen-table");
-        table.innerHTML = "<th style='width: 65%;'>Item</th>";
-    }
 }

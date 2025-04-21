@@ -8,7 +8,8 @@ const groceryClearButton = document.getElementById("clear-groceries");
 window.addEventListener("load", populateRecipeOptions);
 window.addEventListener("load", populateGroceries);
 addRecipeButton.addEventListener("click", addRecipe);
-groceryClearButton.addEventListener("click", clearGroceries);
+groceryClearButton.addEventListener("click", () => clear("groceries", "grocery-table"));
+
 
 function populateRecipeOptions() {
     fetch("data/recipe_database.json")
@@ -75,7 +76,6 @@ function refreshGroceries(ingredients, kitchen) {
 }
 
 function addGroceryItem(item) {
-    //e.preventDefault();
 
     const table = document.getElementById("grocery-table");
     const input = document.getElementById("item-add-kitchen");
@@ -94,7 +94,7 @@ function addGroceryItem(item) {
     newRow.addEventListener("click", () => {
         if (confirm("Delete " + newCell.textContent + "?") == true) {
             newRow.remove();
-            removeItemFromArray(newCell.textContent);
+            removeItemFromArray(newCell.textContent, groceries, "groceries");
         }
     });
 
@@ -113,25 +113,25 @@ function populateGroceries() { //fills grocery with items stored in array.....CA
         newRow.addEventListener("click", () => {
             if (confirm("Delete " + newCell.textContent + "?") == true) {
                 newRow.remove();
-                removeItemFromArray(newCell.textContent);
+                removeItemFromArray(newCell.textContent, groceries, "groceries");
             }
         });
     } 
 }
 
-function removeItemFromArray(requestedItem) { //removes item from kitchen array......CAN SIMPLIFY THIS FUNCTION WITH KITCHEN FUNCTION LATER
-    for (let i=0; i<groceries.length; i++) {
-        if (groceries[i] === requestedItem) {
-            groceries.splice(i, 1);
-            localStorage.setItem("groceries", JSON.stringify(groceries));
+function removeItemFromArray(requestedItem, list, title) { //removes requested item from requested array
+    for (let i=0; i<list.length; i++) {
+        if (list[i] === requestedItem) {
+            list.splice(i, 1);
+            localStorage.setItem(title, JSON.stringify(list));
         }
     }
 }
 
-function clearGroceries() { //clears the kitchens contents from the display and local memory......CAN SIMPLIFY THIS FUNCTION WITH KITCHEN FUNCTION LATER
-    if (confirm("Are you sure you want to clear your grocery list?") == true) {
-        localStorage.removeItem("groceries");
-        const table = document.getElementById("grocery-table");
+function clear(title, tableTitle) { //clears table contents from local memory
+    if (confirm("Are you sure you want to clear your " + title + " list?") == true) {
+        localStorage.removeItem(title);
+        const table = document.getElementById(tableTitle);
         table.innerHTML = "<th>Item</th>";
     }
 }
