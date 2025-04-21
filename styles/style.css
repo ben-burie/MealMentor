@@ -155,7 +155,7 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-.container > div.menu button, .container > div.content button {
+.container > div.menu button, .container > div.content button, .container > div.list button {
     height: 35px;
     background-color: var(--white);
     color: var(--black);
@@ -165,13 +165,13 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-.container > div.menu button:hover, .container > div.content button:hover {
+.container > div.menu button:hover, .container > div.content button:hover, .container > div.list button:hover {
     background-color: lightgray;
     cursor: pointer;
     transition: background-color .2s;
 }
 
-#clear-kitchen {
+#clear-kitchen, #clear-groceries {
     margin-top: 10px;
     width: 100px;
 }
@@ -201,3 +201,19 @@ nav ul li a:hover {
 .container > div.list {
     text-align: center;
 }
+
+.container > div.list table th, .container > div.list table td {
+    border: 1px solid var(--black);
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.container > div.list table td:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.container > div.list table {
+    width: 100%;
+}
+
