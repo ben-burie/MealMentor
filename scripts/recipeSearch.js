@@ -43,6 +43,17 @@ function addRecipe(e) {
 
     let selectedRecipe = recipeDropdown.value;
 
+    if (selectedRecipe === "Select a recipe") {
+        return;
+    }
+
+    const recipeNames = recipes.map(recipes => recipes[0]);
+    if (!uniqueItem(recipeNames, selectedRecipe)) {
+        alert(selectedRecipe + " is already in your planned recipes table!");
+        recipeDropdown.value = "Select a recipe"
+        return;
+    }
+
     //add recipe to table
     const newRow = document.createElement("tr");
     const nameCell = document.createElement("td");
@@ -54,9 +65,6 @@ function addRecipe(e) {
     const foundRecipe = recipeData.find(recipe => recipe.name === selectedRecipe);
 
     if (foundRecipe) {
-        console.log("Ing: ", foundRecipe.ingredients);
-        console.log("Link: ", foundRecipe.link);
-
         const linkCell = document.createElement("td");
         linkCell.innerHTML = "<a href='https://" + foundRecipe.link + "' target='_blank'>Link</a>";
         newRow.appendChild(linkCell);
@@ -164,6 +172,20 @@ function clear(title, tableTitle) { //clears table contents from local memory
     if (confirm("Are you sure you want to clear your " + title + " list?") == true) {
         localStorage.removeItem(title);
         const table = document.getElementById(tableTitle);
-        table.innerHTML = "<th>Item</th>";
+        if (tableTitle === "recipe-table") {
+            table.innerHTML = "<th style='width: 70%;'>Item</th><th style='width: 30%;'>Link</th>";
+        }
+        else {
+            table.innerHTML = "<th>Item</th>";
+        }
+    }
+}
+
+function uniqueItem(array, item) { //checks array to see if ingredient/recipe/grocery item is already there
+    if (array.includes(item)) {
+        return false; //item already exists
+    }
+    else {
+        return true; //item does not already exist, so it can be added
     }
 }

@@ -14,6 +14,11 @@ function addItem(e) { //adds item to kitchen and kithen array
     const input = document.getElementById("item-add-kitchen");
     const currItem = input.value;
 
+    if (!uniqueItem(kitchen, currItem)) { //checks if item is already in the kitchen
+        alert(currItem + " is already in the kitchen!");
+        return;
+    }
+
     const newRow = document.createElement("tr");
     const newCell = document.createElement("td");
     newCell.innerHTML = currItem;
