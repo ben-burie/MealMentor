@@ -6,7 +6,7 @@
     <title>Meal Mentor</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body class="suggestion-page">
     <header>
         <img src="images/leaf.svg" alt="leaf" width="100px">
         <nav>
@@ -33,9 +33,20 @@
             </div>
         </div>
         <div class="content">
-
+            <h2>Suggested Recipes</h2>
+            <p>Our selections are based on the availible ingredients in your kitchen. We will only display recipes you can cook immediately without 
+                a trip to the grocery store!
+            </p>
+            <table>
+                <th>Recipe Name</th>
+                <th>Ingredients</th>
+                <th>Link</th>
+            </table>
+            <button id="refresh">Refresh</button>
         </div>
     </div>
     <script src="scripts/kitchen.js"></script>
+    <script src="scripts/recipeSearch.js"></script>
+    <script src="scripts/suggestions.js"></script>
 </body>
 </html>

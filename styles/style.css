@@ -120,12 +120,22 @@ nav ul li a:hover {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.suggestion-page .container {
+    display: grid;
+    grid-template-areas: "menu content";
+    grid-template-columns: 1fr 3fr;
+    gap: 5px;
+    padding: 5px;
+    margin-top: 50px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .container > div {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
   }
 
-.container > div.menu, .container > div.content {
+.container > div.menu {
     grid-area: menu;
     text-align: center;
 }
@@ -171,7 +181,7 @@ nav ul li a:hover {
     transition: background-color .2s;
 }
 
-#clear-kitchen, #clear-groceries, #clear-recipes {
+#clear-kitchen, #clear-groceries, #clear-recipes, #refresh {
     margin-top: 10px;
     width: 100px;
 }
@@ -182,6 +192,7 @@ nav ul li a:hover {
 
 .container > div.content {
     grid-area: content;
+    text-align: center;
 }
 
 .container > div.content select {
@@ -217,3 +228,8 @@ nav ul li a:hover {
     width: 100%;
 }
 
+.container > div.content {
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}

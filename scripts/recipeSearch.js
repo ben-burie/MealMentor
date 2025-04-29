@@ -47,8 +47,8 @@ function addRecipe(e) {
         return;
     }
 
-    const recipeNames = recipes.map(recipes => recipes[0]);
-    if (!uniqueItem(recipeNames, selectedRecipe)) {
+    const recipeNames = recipes.map(recipes => recipes[0]); 
+    if (!uniqueItem(recipeNames, selectedRecipe)) { //make sure recipe is not already added
         alert(selectedRecipe + " is already in your planned recipes table!");
         recipeDropdown.value = "Select a recipe"
         return;
