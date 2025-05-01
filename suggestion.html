@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Mentor</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="suggestion-page">
     <header>
@@ -37,6 +38,12 @@
             <p>Our selections are based on the availible ingredients in your kitchen. We will only display recipes you can cook immediately without 
                 a trip to the grocery store!
             </p>
+            <form>
+                <label>Filter out recipes that contain:</label>
+                <select id="filter-options">
+                    <option></option>
+                </select>
+            </form>
             <table id="suggestion-table">
                 <th>Recipe Name</th>
                 <th>Ingredients</th>

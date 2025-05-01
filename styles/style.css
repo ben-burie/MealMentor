@@ -159,7 +159,7 @@ nav ul li a:hover {
     margin-top: 20px;
 }
 
-.container > div.menu input {
+.container > div.menu input, .container > div.content input {
     padding: 10px;
     border: 1px solid var(--black);
     border-radius: 5px;
@@ -232,4 +232,8 @@ nav ul li a:hover {
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
+}
+
+.email-section {
+    margin-top: 20%;
 }

@@ -31,9 +31,9 @@ function findAvailableRecipes() {
                 }
             }
             if (isValid === true && !suggestedRecipes.includes(data.name)) {
-                console.log(data.name); //currently logging all recipes that can be made with available ingredients
                 suggestedRecipes.push(data.name);
                 addAvailableRecipe(data.name, data.ingredients, data.link);
+                populateFilterList(data.ingredients)
             }
         });
     })
@@ -57,3 +57,19 @@ function addAvailableRecipe(name, ingredients, link) {
 
     suggestionTable.appendChild(newRow);
 }
+
+function populateFilterList(ingredient) {
+    for (let i=0; i<ingredient.length; i++) {
+        const filterDropdown = document.getElementById("filter-options");
+        let ingredientEle = document.createElement("option");
+        ingredientEle.textContent = ingredient[i];
+        filterDropdown.appendChild(ingredientEle);
+    }
+}
+
+$(function() { //use jQuery to detect a change in the dropdown, then filter recipe results
+    $("#filter-options").change(function() {
+        console.log("Change");
+        
+    });
+});
