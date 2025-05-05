@@ -70,6 +70,37 @@ function populateFilterList(ingredient) {
 $(function() { //use jQuery to detect a change in the dropdown, then filter recipe results
     $("#filter-options").change(function() {
         console.log("Change");
-        
+        const filterItem = document.getElementById("filter-options").value;
+
+        const allRows = document.getElementById("suggestion-table").children;
+        for (let row of allRows) {
+            row.style.display = ""; // restore visibility of recipes once the filter item is changed
+        }
+
+        for (let i=0; i<suggestedRecipes.length; i++) {
+            fetch("data/recipe_database.json")
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(data => {
+                    if (data.name === suggestedRecipes[i]) {
+                        if (data.ingredients.includes(filterItem)) {
+                            const parentEle = document.getElementById("suggestion-table");
+                            const children = parentEle.children;
+
+                            for (let child of children) {
+                                const cells = child.getElementsByTagName("td");
+                                for (let cell of cells) {
+                                  if (cell.textContent.trim() === data.name) {
+                                    const target = child;
+                                    target.style.display = "none"; //hide recipes that contain filtered ingredients
+                                  }
+                                }
+                            }
+                        }
+                    }
+            });
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+        }
     });
 });
