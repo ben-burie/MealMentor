@@ -4,7 +4,7 @@ const suggestedRecipes = [];
 refreshButton.addEventListener("click", refreshSuggestions);
 window.addEventListener("load", refreshSuggestions);
 
-function refreshSuggestions() {
+function refreshSuggestions() { //refreshes the suggested recipes table which is based on available ingredients from the user's kitchen
     if (kitchen.length == 0) {
         alert("No recipes available, there are not enough groceries in your kitchen.");
     }
@@ -13,7 +13,7 @@ function refreshSuggestions() {
     }
 }
 
-function findAvailableRecipes() {
+function findAvailableRecipes() { //finds recipes that contain only ingredients that also exist in the user's kitchen
     fetch("data/recipe_database.json")
     .then(response => response.json())
     .then(data => {
@@ -40,7 +40,7 @@ function findAvailableRecipes() {
     .catch(error => console.error('Error loading JSON:', error));
 }
 
-function addAvailableRecipe(name, ingredients, link) {
+function addAvailableRecipe(name, ingredients, link) { //adds the found recipe to the suggested recipes table
     const suggestionTable = document.getElementById("suggestion-table");
     const newRow = document.createElement("tr");
     const nameCell = document.createElement("td");
@@ -58,7 +58,7 @@ function addAvailableRecipe(name, ingredients, link) {
     suggestionTable.appendChild(newRow);
 }
 
-function populateFilterList(ingredient) {
+function populateFilterList(ingredient) { //populates the filter dropdown with all ingredients from recipes in the suggested recipes table
     for (let i=0; i<ingredient.length; i++) {
         const filterDropdown = document.getElementById("filter-options");
         let ingredientEle = document.createElement("option");

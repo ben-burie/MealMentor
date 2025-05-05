@@ -4,7 +4,7 @@ const date = currentDate.toLocaleDateString();
 
 downloadButton.addEventListener("click", generatePdf);
 
-async function generatePdf() {
+async function generatePdf() { //generates a downloadable pdf that contains the users grocery and recipe lists
     const userName = document.getElementById("name").value;
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();

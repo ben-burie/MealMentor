@@ -15,7 +15,7 @@ groceryClearButton.addEventListener("click", () => clear("groceries", "grocery-t
 recipeClearButton.addEventListener("click", () => clear("recipes", "recipe-table"));
 
 
-function populateRecipeOptions() {
+function populateRecipeOptions() { //fills the recipe dropdown with all 3000 recipes from the recipe_database JSON file
     fetch("data/recipe_database.json")
     .then(response => response.json())
     .then(data => {
@@ -36,7 +36,7 @@ function populateRecipeOptions() {
     .catch(error => console.error("Error loading JSON: ", error));
 }
 
-function addRecipe(e) {
+function addRecipe(e) { //adds the selected recipe to the recipe plan table when the user clicks the "add" button
     e.preventDefault();
 
     const table = document.getElementById("recipe-table");
@@ -77,7 +77,7 @@ function addRecipe(e) {
     recipeDropdown.value = "Select a recipe";
 }
 
-function populateRecipes() {
+function populateRecipes() { //adds teh recipe to the recipe table along with its link
     const table = document.getElementById("recipe-table");
     for (let i=0; i<recipes.length; i++) {
         const newRow = document.createElement("tr");
@@ -98,7 +98,7 @@ function populateRecipes() {
     } 
 }
 
-function refreshGroceries(ingredients, kitchen) {
+function refreshGroceries(ingredients, kitchen) { //adds items to grocery list based on planned recipes
     groceriesToAdd = [];
     for (let i=0; i<ingredients.length; i++) {
         if (!kitchen.includes(ingredients[i])) {
@@ -111,7 +111,7 @@ function refreshGroceries(ingredients, kitchen) {
     }
 }
 
-function addGroceryItem(item) {
+function addGroceryItem(item) { //adds the grocery item to the grocery table in the HTML
 
     const table = document.getElementById("grocery-table");
     const input = document.getElementById("item-add-kitchen");
