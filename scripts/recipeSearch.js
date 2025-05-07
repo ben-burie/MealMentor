@@ -137,7 +137,7 @@ function addGroceryItem(item) { //adds the grocery item to the grocery table in 
     input.value = "";
 }
 
-function populateGroceries() { //fills grocery with items stored in array.....CAN SIMPLIFY THIS FUNCTION WITH KITCHEN FUNCTION LATER
+function populateGroceries() { //fills grocery with items stored in array
     const table = document.getElementById("grocery-table");
     for (let i=0; i<groceries.length; i++) {
         const newRow = document.createElement("tr");
@@ -171,6 +171,15 @@ function clear(title, tableTitle) { //clears table contents from local memory
     }
     if (confirm("Are you sure you want to clear your " + title + " list?") == true) {
         localStorage.removeItem(title);
+        if (title === "groceries") {
+            groceries = [];
+        }
+        else if (title === "kitchen") {
+            kitchen = [];
+        }
+        else {
+            recipes = [];
+        }
         const table = document.getElementById(tableTitle);
         if (tableTitle === "recipe-table") {
             table.innerHTML = "<th style='width: 70%;'>Item</th><th style='width: 30%;'>Link</th>";
