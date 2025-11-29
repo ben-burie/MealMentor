@@ -1,7 +1,7 @@
 # Meal Mentor 🥗  
 *A JavaScript meal-planning app to simplify weekly cooking and grocery shopping.*
 
-Meal Mentor helps users plan recipes, track kitchen inventory, automatically generate grocery lists, and discover meals they can cook with what they already have. Built as the final project for **COMPSCI 381: JavaScript & DHTML**.
+Meal Mentor helps users plan recipes, track kitchen inventory, automatically generate grocery lists, and discover meals they can cook with what they already have.
 
 ---
 
